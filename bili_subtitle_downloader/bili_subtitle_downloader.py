@@ -20,7 +20,7 @@ class BiliSubtitleDownloader:
 
 
     def _get_player_list(self):
-        response = requests.get(self.pagelist_api, params={'bvid': self.bv_id})
+        response = requests.get(self.pagelist_api, headers=self.headers, params={'bvid': self.bv_id})
         cid_list = [x['cid'] for x in response.json()['data']]
         return cid_list
     
